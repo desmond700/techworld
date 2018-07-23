@@ -1,0 +1,9 @@
+<div class="card" *ngFor="let value of products">
+    <img src="{{value.img}}" width="200" />
+    <div class="card-body">
+      <h5 class="card-title">{{value.name}}</h5>
+      <p class="card-text">CDN$ {{value.price}}</p>
+      <a routerLink="/products/view/{{value._id}}" routerLinkActive="active" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <p>{{type}}</p>
+  </div>

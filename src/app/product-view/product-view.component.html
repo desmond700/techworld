@@ -1,0 +1,32 @@
+
+<div *ngIf="product != null" class="container py-5">
+	
+	<div class="row bg-dark">
+		<div class="card bg-transparent border-0 py-3">
+			<img src="{{product.img}}" />
+		</div>
+		<div class="flex-grow-1 py-3">
+			<h2 class="text-white">{{product.name}}</h2>
+			<p class="text-white mt-4">Model: {{product.model}}</p>
+		</div>
+	</div>
+	<hr>
+	<div class="col-md-12">
+		<h4>Specifications:</h4>
+		<hr>
+		<ul class="list-group list-group-flush">
+		  <li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
+		  <li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+		</ul>
+	</div>
+</div>
