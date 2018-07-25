@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,14 +8,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  clickedEvent: any;
-
   constructor() {}
 
   ngOnInit() {
   }
 
-  childEventClicked(event) {
-    this.clickedEvent = event;
-  }
 }

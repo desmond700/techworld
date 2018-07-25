@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart.service';
-import { ProductsService } from './products.service';
 import { ProductViewService } from './product-view.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductViewComponent } from './product-view/product-view.component';
@@ -22,8 +21,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'products',
-    component: ProductListComponent
+    path: 'products/:category',
+    component: ProductListComponent,
   },
   {
     path: 'products/view/:id',
@@ -49,11 +48,10 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-	SlimLoadingBarModule
+SlimLoadingBarModule
   ],
   providers: [
     CartService,
-    ProductsService,
     ProductViewService
   ],
   bootstrap: [AppComponent]

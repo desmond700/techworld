@@ -27,10 +27,10 @@ router.get('/cart', function(req, res) {
 }); 
 
 //Get all data router.get('/Productscollection', 
-router.get('/products', function(req, res) { 
+router.get('/products/:category', function(req, res) { 
     console.log("Get request for products"); 
 
-    Productscollection.find({}).exec(function(err, Productscollection){ 
+    Productscollection.find({type: req.params.category}).exec(function(err, Productscollection){ 
         if(err) { 
             console.log("Error retrieving Productscollection."); 
         } 
@@ -41,7 +41,7 @@ router.get('/products', function(req, res) {
 }); 
 
 //retrieve data by id 
-router.get('/products/:id', function(req, res) { 
+router.get('/product/:id', function(req, res) { 
 	console.log("Get request for single document"); 
 	Productscollection.findById(req.params.id) .exec(function(err, Product){ 
 		if(err) { 

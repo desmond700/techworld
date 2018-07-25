@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { CategoryProductsService } from '../category-products/category-products.service';
 
 @Component({
   selector: 'app-categories',
@@ -9,13 +10,9 @@ export class CategoriesComponent implements OnInit {
 
   @Output() productType = new EventEmitter();
 
-  constructor() { }
+  constructor(private _products: CategoryProductsService) { }
 
   ngOnInit() {
-  }
-
-  productTypeOutput(type) {
-    this.productType.emit(type);
   }
 
 }
