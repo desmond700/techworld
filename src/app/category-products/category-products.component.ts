@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductsService } from '../products.service';
+import { CategoryProductsService } from './category-products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category-products',
@@ -9,15 +10,22 @@ import { ProductsService } from '../products.service';
 export class CategoryProductsComponent implements OnInit {
 
   products: any;
-  @Input() type;
+  type: any;
+  category: any;
 
-  constructor(private _products: ProductsService) { }
+  constructor(private _products: CategoryProductsService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this._products.getProducts().subscribe(
-      res => { this.products = res; },
-      err => console.log('error retrieving object: ' + err)
-    );
-  }
+    // Get route parameter
+    this.route.params.subscribe(params => {
+      this.type = params['category'];
 
+      // Get product object
+      this._products.getProductObj(this.type).subscribe(
+        res => { this.products = res; console.log('response: ' + res); },
+        err => console.log('error retrieving object: ' + err)
+      );
+    });
+  }
 }
