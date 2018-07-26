@@ -14,12 +14,28 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryProductsComponent } from './category-products/category-products.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AlertService } from './user/alert.service';
+import { AuthenticationService } from './auth/auth.service';
+import { UserService } from './user/user.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'signup',
+    component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'products',
@@ -52,18 +68,25 @@ const routes: Routes = [
     ProductViewComponent,
     CategoriesComponent,
     CategoryProductsComponent,
-    DropdownDirective,
-    ProductsPageComponent
+    ProductsPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-SlimLoadingBarModule
+SlimLoadingBarModule,
+ReactiveFormsModule,
+FormsModule
   ],
   providers: [
     CartService,
-    ProductViewService
+    ProductViewService,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
