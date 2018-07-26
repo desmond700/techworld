@@ -13,6 +13,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryProductsComponent } from './category-products/category-products.component';
+import { ProductsPageComponent } from './products-page/products-page.component';
 
 
 const routes: Routes = [
@@ -21,12 +22,20 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'products/:category',
-    component: ProductListComponent,
-  },
-  {
-    path: 'products/view/:id',
-    component: ProductViewComponent
+    path: 'products',
+    component: ProductsPageComponent,
+    children: [
+      {
+        path: ':category',
+        component: ProductListComponent,
+        children: [
+          {
+            path: 'view/:id',
+            component: ProductViewComponent
+          }
+        ]
+      },
+    ]
   },
   {
     path: 'cart',
@@ -42,7 +51,9 @@ const routes: Routes = [
     ProductListComponent,
     ProductViewComponent,
     CategoriesComponent,
-    CategoryProductsComponent
+    CategoryProductsComponent,
+    DropdownDirective,
+    ProductsPageComponent
   ],
   imports: [
     BrowserModule,
