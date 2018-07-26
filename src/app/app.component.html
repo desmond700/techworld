@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+  <div class="container-fluid">
   <a routerLink="" routerLinkActive="active" class="navbar-brand">TechWorld</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,15 +9,16 @@
 
   <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav float-left">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" appDropdown>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Department
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" routerLink="/products/laptop">Laptops</a>
+          <a class="dropdown-item" routerLink="/products/camera">Cameras</a>
+          <a class="dropdown-item" routerLink="/products/tv">Tvs</a>
+          <a class="dropdown-item" routerLink="/products/cell phone">Cell phones</a>
+		  <a class="dropdown-item" routerLink="/products/home appliance">Home appliances</a>
         </div>
       </li>
     </ul>
