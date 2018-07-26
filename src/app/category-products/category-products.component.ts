@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CategoryProductsService } from './category-products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-products',
@@ -14,7 +14,8 @@ export class CategoryProductsComponent implements OnInit {
   category: any;
 
   constructor(private _products: CategoryProductsService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     // Get route parameter
@@ -27,5 +28,9 @@ export class CategoryProductsComponent implements OnInit {
         err => console.log('error retrieving object: ' + err)
       );
     });
+  }
+
+  productView(category) {
+    this.router.navigate(['view', category], { relativeTo: this.route });
   }
 }
