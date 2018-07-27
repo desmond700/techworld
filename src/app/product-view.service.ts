@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs/Observable/of';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -12,9 +11,11 @@ export class ProductViewService {
 
   private productsUrl = 'http://localhost:3000/api/product/';
   private theBoolean: BehaviorSubject<boolean>;
+  private productInfo: BehaviorSubject<any>;
 
   constructor(private _http: HttpClient) {
     this.theBoolean = new BehaviorSubject<boolean>(true);
+    this.productInfo = new BehaviorSubject<boolean>(null);
   }
 
   getproductbyid(id) {
@@ -24,8 +25,16 @@ export class ProductViewService {
   isShowCategory(): Observable<boolean> {
     return this.theBoolean.asObservable();
   }
-  
-  public showCategory(newValue: boolean): void {
+
+  showCategory(newValue: boolean): void {
     this.theBoolean.next(newValue);
+  }
+
+  setProductInfo(obj: any): void {
+    this.productInfo.next(obj);
+  }
+
+  getProductInfo() {
+    return this.productInfo.asObservable();
   }
 }
