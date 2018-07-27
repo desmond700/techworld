@@ -5,6 +5,7 @@ const router = express.Router();
 const mongoose = require('mongoose'); 
 const Cartcollection = require('../models/cart');
 const Productscollection = require('../models/products');
+const User = require('../models/user');
 const config = require('../config/db.js');
 
 mongoose.Promise = global.Promise;
@@ -51,5 +52,72 @@ router.get('/product/:id', function(req, res) {
 		} 
 	}) 
 });
+
+// post user data
+router.post('/register', function(req, res) { 
+    let userData = req.body;
+    let user = new User(userData);
+	user.save(function(err, registerUser){ 
+		if(err) { 
+			console.log(err); 
+		} else { 
+			res.status(200).send(registerUser); 
+		} 
+	}) 
+});
+
+// post user data
+router.post('/login', function(req, res) { 
+    let userData = req.body;
+	User.findOne({username: userData.username},function(err, user){ 
+		if(err) { 
+			console.log(err); 
+		} else { 
+            if(!user){
+                res.status(401).send('Invalid email');
+            }else
+            if( user.password !== userData.password ){
+                res.status(401).send('Invalid password');
+            }else{
+                res.status(200).send(user);
+            } 
+		} 
+	}) 
+});
+
+router.post('/cart/item', function(req, res) { 
+
+    let cartData = req.body;
+    let item = new Cartcollection(cartData);
+
+    item.save(function(err, cartItem){ 
+        if(err) { 
+            res.status(401).send({err: 'Error: Could not delete robot'});
+        } 
+        else { 
+            res.status(200).send(cartItem);
+        } 
+    })
+}); 
+
+
+// Delete
+
+router.delete('/cart/:id', function(req, res) { 
+    
+    var id = req.params.id;
+
+    Cartcollection.remove({_id: ObjectId(id)},function(err, result){ 
+        if(err) { 
+            res.status(401).send({err: 'Error: Could not delete robot'});
+        } 
+        if(!result){
+            res.status(400).send({err: 'Item deleted from cart collection'}); 
+        }
+        else { 
+            res.send(result);
+        } 
+    })
+}); 
 
 module.exports = router
