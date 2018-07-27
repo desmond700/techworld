@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from "./user";
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseUrl: string = 'http://localhost:8080/user-portal/users';
+  baseUrl: any = 'http://localhost:3000/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   register(user: User) {
-      return this.http.post(`/users/register`, user);
+      return this.http.post(`${this.baseUrl}/register`, user);
   }
 
   update(user: User) {
