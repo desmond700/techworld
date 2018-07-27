@@ -13,7 +13,6 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryProductsComponent } from './category-products/category-products.component';
-import { ProductsPageComponent } from './products-page/products-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -38,19 +37,17 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'products',
-    component: ProductsPageComponent,
+    path: 'products/:category',
+    component: ProductListComponent,
     children: [
-      {
-        path: ':category',
-        component: ProductListComponent,
-        children: [
-          {
-            path: 'view/:id',
-            component: ProductViewComponent
-          }
-        ]
+    {
+        path: '',
+        component: CategoryProductsComponent
       },
+      {
+        path: 'view/:id',
+        component: ProductViewComponent
+      }
     ]
   },
   {
@@ -68,7 +65,6 @@ const routes: Routes = [
     ProductViewComponent,
     CategoriesComponent,
     CategoryProductsComponent,
-    ProductsPageComponent,
     LoginComponent,
     RegisterComponent
   ],
