@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { ProductViewService } from '../product-view.service';
 
 
@@ -11,14 +11,13 @@ export class ProductListComponent implements OnInit {
 
     show: any;
 
-    constructor(private _product: ProductViewService,
-                private cdr: ChangeDetectorRef) {
+    constructor(private _product: ProductViewService) {
     }
 
     ngOnInit() {
         this._product.isShowCategory().subscribe( res => {
                 this.show = res;
-                this.cdr.detectChanges();
+                // this.cdr.detectChanges();
             }
         );
     }
