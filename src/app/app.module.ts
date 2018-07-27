@@ -20,6 +20,8 @@ import { AlertService } from './user/alert.service';
 import { AuthenticationService } from './auth/auth.service';
 import { UserService } from './user/user.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CategoryProductsService } from './category-products/category-products.service';
+import { ProductViewSidebarComponent } from './product-view-sidebar/product-view-sidebar.component';
 
 
 const routes: Routes = [
@@ -66,7 +68,8 @@ const routes: Routes = [
     CategoriesComponent,
     CategoryProductsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductViewSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +86,7 @@ FormsModule
     AlertService,
     AuthenticationService,
     UserService,
+    CategoryProductsService
   ],
   bootstrap: [AppComponent]
 })
