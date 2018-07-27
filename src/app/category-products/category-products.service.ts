@@ -8,7 +8,10 @@ export class CategoryProductsService {
 
   private productUrl = 'http://localhost:3000/api/products/';
   @Output() productsObj: EventEmitter<any> = new EventEmitter();
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
   result: any;
+  isOpen = false;
+  
 
   constructor(private _http: HttpClient) { }
 
@@ -16,6 +19,8 @@ export class CategoryProductsService {
     return this._http.get( this.productUrl + category );
   }
 
-  changeProducts() {
+  toggle() {
+    this.isOpen = !this.isOpen;
+    this.change.emit(this.isOpen);
   }
 }
