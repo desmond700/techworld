@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductViewService } from '../product-view.service';
 
 @Component({
@@ -19,9 +19,11 @@ export class ProductViewComponent implements OnInit {
     this.route.params.subscribe( params => { this.productID = params; });
 
     this._product.getproductbyid( this.productID.id ).subscribe(
-      res => { this.product = res; },
+      res => { this.product = res; console.log( 'json data:' + res ); },
       err => console.log( 'error fetch json data.' )
     );
+
+    this._product.showCategory(false);
   }
 
   getProduct(id) {
