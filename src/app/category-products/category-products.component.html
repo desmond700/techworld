@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{value.name}}</h5>
       <p class="card-text">CDN$ {{value.price}}</p>
-      <a [routerLink]="value._id" class="btn btn-primary">Go somewhere</a>
+      <a [routerLink]="['view',value._id]" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
 
