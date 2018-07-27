@@ -24,6 +24,8 @@ export class ProductViewComponent implements OnInit {
     );
 
     this._product.showCategory(false);
+
+    this._product.setProductInfo(this.product);
   }
 
   getProduct(id) {
