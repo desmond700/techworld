@@ -22,7 +22,18 @@ import { UserService } from './user/user.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CategoryProductsService } from './category-products/category-products.service';
 import { ProductViewSidebarComponent } from './product-view-sidebar/product-view-sidebar.component';
-
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminLoginComponent } from './admin/login/login.component';
+import { AdminService } from './admin/admin.service';
+import { AdminAuthGuard } from './admin/admin-auth.guard';
+import { ListCustomersComponent } from './admin/dashboard/list-customers.component';
+import { AddProductComponent } from './admin/dashboard/add-product/add-product.component';
+import { ListProductsComponent } from './admin/dashboard/list-products/list-products.component';
+import { ProductsComponent } from './admin/dashboard/list-products/products.component';
+import { LaptopComponent } from './admin/dashboard/add-product/laptop/laptop.component';
+import { CameraComponent } from './admin/dashboard/add-product/camera/camera.component';
+import { TvComponent } from './admin/dashboard/add-product/tv/tv.component';
+import { CellPhoneComponent } from './admin/dashboard/add-product/cell-phone/cell-phone.component';
 
 const routes: Routes = [
   {
@@ -55,7 +66,64 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  }
+  },
+  {
+    path: 'admin',
+    children: [
+	  {
+        path: '',
+        redirectTo: 'dashboard',
+		pathMatch: 'full'
+      },
+      {
+        path: 'login',
+        component: AdminLoginComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+		//canActivate: [AdminAuthGuard]
+		children: [
+		  {
+		    path: 'customers',
+		    component: ListCustomersComponent
+		  },
+		  {
+		    path: 'add-products',
+		    component: AddProductComponent,
+			children: [
+			  {
+				  path: 'laptop',
+				  component: LaptopComponent
+			  },
+			  {
+				  path: 'tv',
+				  component: TvComponent
+			  },
+			  {
+				  path: 'camera',
+				  component: CameraComponent
+			  },
+			  {
+				  path: 'cell phone',
+				  component: CellPhoneComponent
+			  }
+			]
+		  },
+		  {
+		    path: 'list-products',
+		    component: ListProductsComponent,
+			children: [
+			  {
+				  path: ':category',
+				  component: ProductsComponent
+			  }
+			]
+		  }
+		]
+      }
+    ]
+  },
 ];
 
 @NgModule({
@@ -69,7 +137,17 @@ const routes: Routes = [
     CategoryProductsComponent,
     LoginComponent,
     RegisterComponent,
-    ProductViewSidebarComponent
+    ProductViewSidebarComponent,
+    DashboardComponent,
+	AdminLoginComponent,
+	ListCustomersComponent,
+	AddProductComponent,
+	ListProductsComponent,
+	ProductsComponent,
+	LaptopComponent,
+	CameraComponent,
+	TvComponent,
+	CellPhoneComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +164,8 @@ FormsModule
     AlertService,
     AuthenticationService,
     UserService,
-    CategoryProductsService
+    CategoryProductsService,
+	AdminService
   ],
   bootstrap: [AppComponent]
 })
