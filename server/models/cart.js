@@ -7,7 +7,7 @@ const cartSchema = new Schema({
     type: String,
     img: String,
     price: String,
-    
+    quantity: Number
 });
 
 module.exports = mongoose.model('cart', cartSchema, 'cart');
