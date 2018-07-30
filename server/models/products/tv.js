@@ -20,7 +20,7 @@ const productsSchema = new Schema({
         Are_Batteries_Included: String,
         Batteries_Required: String,
         Refresh_Rate: String,
-        Includes Remote: String,
+        Includes_Remote: String,
         Operating_system: String
 	},
 	bulletpoints:{

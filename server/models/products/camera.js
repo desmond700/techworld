@@ -9,10 +9,10 @@ const productsSchema = new Schema({
 	img: String,
     price: String,
 	specs:{
-		Wi-Fi: String,
+		WiFi: String,
         Bluetooth: String,
         Battery_Type: String,
-        Back-up_Battery: String,
+        Back_up_Battery: String,
         Width: String,
         Height: String,
         Depth: String,

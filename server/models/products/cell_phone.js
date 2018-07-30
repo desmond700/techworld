@@ -10,11 +10,11 @@ const productsSchema = new Schema({
     price: String,
 	specs:{
 		Bluetooth: String,
-        Memory-Built-in: String,
+        Memory_Built_in: String,
         CPU: String,
         RAM_Size: String,
         SIM_Card: String,
-        Battery-Talk_Time: String,
+        Battery_Talk_Time: String,
         Battery_Type: String,
         Supported_Network_Bands: String,
         NFC: String,
@@ -26,8 +26,8 @@ const productsSchema = new Schema({
 		Display_Size: String,
 		Fingerprint_Scanning: String,
 		Operating_system: String,
-		Dimensions_(cm): String,
-		Dimensions_(in): String,
+		Dimensions_cm: String,
+		Dimensions_in: String,
 		Weight: String
 	},
 	bulletpoints:{
