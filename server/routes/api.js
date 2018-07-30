@@ -5,7 +5,12 @@ const router = express.Router();
 const mongoose = require('mongoose'); 
 const Cartcollection = require('../models/cart');
 const Productscollection = require('../models/products');
+const Laptop = require('../models/products/laptop');
+const Camera = require('../models/products/camera');
+const Tv = require('../models/products/tv');
+const Cell_phone = require('../models/products/cell_phone');
 const User = require('../models/user');
+const Admin = require('../models/admin');
 const config = require('../config/db.js');
 
 mongoose.Promise = global.Promise;
@@ -13,7 +18,8 @@ mongoose.Promise = global.Promise;
         () => {console.log('Database is connected')},
         err => {console.log('Can not connect to the database' + err)}
     )
-//Get all data router.get('/Cartcollection', 
+	
+// Get all data in the cart 
 router.get('/cart', function(req, res) { 
     console.log("Get request for cart"); 
 
@@ -27,7 +33,7 @@ router.get('/cart', function(req, res) {
     })
 }); 
 
-//Get all data router.get('/Productscollection', 
+// Get all products data
 router.get('/products/:category', function(req, res) { 
     console.log("Get request for products"); 
 
@@ -41,10 +47,10 @@ router.get('/products/:category', function(req, res) {
     })
 }); 
 
-//retrieve data by id 
+// Retrieve data by id 
 router.get('/product/:id', function(req, res) { 
 	console.log("Get request for single document"); 
-	Productscollection.findById(req.params.id) .exec(function(err, Product){ 
+	Productscollection.findById(req.params.id).exec(function(err, Product){ 
 		if(err) { 
 			console.log("Error retrieving Product."); 
 		} else { 
@@ -53,7 +59,7 @@ router.get('/product/:id', function(req, res) {
 	}) 
 });
 
-// post user data
+// Post user register data
 router.post('/register', function(req, res) { 
     let userData = req.body;
     let user = new User(userData);
@@ -66,7 +72,7 @@ router.post('/register', function(req, res) {
 	}) 
 });
 
-// post user data
+// Post user login data
 router.post('/login', function(req, res) { 
     let userData = req.body;
 	User.findOne({username: userData.username},function(err, user){ 
@@ -85,6 +91,75 @@ router.post('/login', function(req, res) {
 	}) 
 });
 
+// Post admin login data
+router.post('/admin/login', function(req, res) { 
+    let userData = req.body;
+	Admin.findOne({username: userData.username},function(err, user){ 
+		if(err) { 
+			console.log(err); 
+		} else { 
+            if(!user){
+                res.status(401).send('Invalid email');
+            }else
+            if( user.password !== userData.password ){
+                res.status(401).send('Invalid password');
+            }else{
+                res.status(200).send(user);
+            } 
+		} 
+	}) 
+});
+
+// Add product to database
+router.post('/product/laptop', function(req, res) { 
+	let laptopData = req.body;
+    let laptop = new Laptop(laptopData);
+	laptop.save(function(err, Product){ 
+		if(err) { 
+			console.log(err);
+		} else { 
+			res.status(200).send(Product); 
+		} 
+	}) 
+});
+
+// Add product to database
+router.post('/product/tv', function(req, res) { 
+	 
+	Tv.save(function(err, Product){ 
+		if(err) { 
+			console.log(err);
+		} else { 
+			res.status(200).send(Product); 
+		} 
+	}) 
+});
+
+// Add product to database
+router.post('/product/camera', function(req, res) { 
+	 
+	Camera.save(function(err, Product){ 
+		if(err) { 
+			console.log(err);
+		} else { 
+			res.status(200).send(Product); 
+		} 
+	}) 
+});
+
+// Add product to database
+router.post('/product/cell_phone', function(req, res) { 
+	 
+	Cell_phone.save(function(err, Product){ 
+		if(err) { 
+			console.log(err);
+		} else { 
+			res.status(200).send(Product); 
+		} 
+	}) 
+});
+
+// Add item to cart
 router.post('/cart/item', function(req, res) { 
 
     let cartData = req.body;
@@ -101,13 +176,30 @@ router.post('/cart/item', function(req, res) {
 }); 
 
 
-// Delete
-
-router.delete('/cart/:id', function(req, res) { 
+// Delete an item from the cart
+router.delete('/cart/item/:id', function(req, res) { 
     
-    var id = req.params.id;
+    var id = req.param("id");
 
-    Cartcollection.remove({_id: ObjectId(id)},function(err, result){ 
+    Cartcollection.remove({_id: id},function(err, result){ 
+        if(err) { 
+            res.status(401).send({err: 'Error: Could not delete robot'});
+        } 
+        if(!result){
+            res.status(400).send({err: 'Item deleted from cart collection'}); 
+        }
+        else { 
+            res.send(result);
+        } 
+    })
+}); 
+
+// Delete an item from the cart
+router.delete('/user/:id', function(req, res) { 
+    
+    var id = req.param("id");
+
+    User.remove({_id: id},function(err, result){ 
         if(err) { 
             res.status(401).send({err: 'Error: Could not delete robot'});
         } 
