@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../../auth/auth.service';
+import { AdminService } from '../admin.service';
 import { AlertService } from '../../user/alert.service';
 import { first } from 'rxjs/operators';
 
@@ -22,7 +22,7 @@ export class AdminLoginComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private alertService: AlertService,
-              private authenticationService: AuthenticationService) { }
+              private authenticationService: AdminService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -42,7 +42,9 @@ export class AdminLoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    console.log('username: ' + this.f.username.value + 'password: ' + this.f.password.value);
 
+    console.log('invalid: ' + this.loginForm.invalid);
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
@@ -53,7 +55,7 @@ export class AdminLoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+                this.router.navigate(['admin', 'dashboard']);
             },
             error => {
                 this.alertService.error(error);
