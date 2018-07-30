@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductViewService } from '../product-view.service';
+import { CartService } from '../cart.service';
+import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-view-sidebar',
@@ -8,10 +12,34 @@ import { ProductViewService } from '../product-view.service';
 })
 export class ProductViewSidebarComponent implements OnInit {
 
-  constructor(private _product: ProductViewService) { }
+  productInfo: any;
+  quantityVal: any;
+
+  constructor(private _product: ProductViewService,
+			  private router: Router,
+			  private _cart: CartService) { }
 
   ngOnInit() {
-    this._product.getProductInfo().subscribe(res => console.log('product view: ' + res));
+    this._product.getProductInfo().subscribe(res => { this.productInfo = res; });
+  }
+  
+  onSubmit() {
+	  
+	  this._cart.addToCart(this.productInfo).pipe(first()).subscribe(
+              () => {
+                  //this.alertService.success('Registration successful', true);
+                  this.router.navigate(['/cart']);
+              },
+              error => {
+                  //this.alertService.error(error);
+                  //this.loading = false;
+              });;
+  }
+  
+  quantityChange(event: any): void {
+	  this.quantityVal = event.target.value;
+	  this.productInfo.quantity = this.quantityVal;
+	  console.log(this.quantityVal);
   }
 
 }

@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-}
+  }
 
-// convenience getter for easy access to form fields
-get f() { return this.loginForm.controls; }
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 
-onSubmit() {
+  onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
@@ -58,6 +58,6 @@ onSubmit() {
                 this.alertService.error(error);
                 this.loading = false;
             });
-}
+  }
 
 }

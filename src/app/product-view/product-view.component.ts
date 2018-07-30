@@ -11,6 +11,14 @@ export class ProductViewComponent implements OnInit {
 
   productID: any;
   product: any;
+  itemToCart: any = {
+    name: '',
+    model: '',
+    type: '',
+    img: '',
+    price: '',
+	quantity: ''
+  };
 
   constructor(private route: ActivatedRoute, private _product: ProductViewService) {
   }
@@ -19,13 +27,21 @@ export class ProductViewComponent implements OnInit {
     this.route.params.subscribe( params => { this.productID = params; });
 
     this._product.getproductbyid( this.productID.id ).subscribe(
-      res => { this.product = res; console.log( 'json data:' + res ); },
+      res => { 
+		this.product = res;
+		
+		this.itemToCart.name  = this.product.name;
+		this.itemToCart.model = this.product.model;
+		this.itemToCart.type  = this.product.type;
+		this.itemToCart.img   = this.product.img;
+		this.itemToCart.price = this.product.price;
+		
+		this._product.setProductInfo(this.itemToCart);
+	  },
       err => console.log( 'error fetch json data.' )
     );
-
     this._product.showCategory(false);
-
-    this._product.setProductInfo(this.product);
+ 
   }
 
   getProduct(id) {

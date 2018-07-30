@@ -1,3 +1,13 @@
-<p>
-  product-view-sidebar works!
-</p>
+<div class="px-2 py-4 border">
+<p><span class="text-danger">CDN$ {{productInfo.price}}</span></p>
+	<form (ngSubmit)="onSubmit()">
+		<div class="d-flex my-2">
+			<label class="my-auto">Quantity: &nbsp;</label> 
+			<select (change)="quantityChange($event)" class="form-control" style="width:56px">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-warning mt-3 w-100">Add to cart</button>
+	</form>
+</div>
