@@ -70,10 +70,10 @@ const routes: Routes = [
   {
     path: 'admin',
     children: [
-	  {
+    {
         path: '',
         redirectTo: 'dashboard',
-		pathMatch: 'full'
+        pathMatch: 'full'
       },
       {
         path: 'login',
@@ -82,45 +82,45 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-		//canActivate: [AdminAuthGuard]
-		children: [
-		  {
-		    path: 'customers',
-		    component: ListCustomersComponent
-		  },
-		  {
-		    path: 'add-products',
-		    component: AddProductComponent,
-			children: [
-			  {
-				  path: 'laptop',
-				  component: LaptopComponent
-			  },
-			  {
-				  path: 'tv',
-				  component: TvComponent
-			  },
-			  {
-				  path: 'camera',
-				  component: CameraComponent
-			  },
-			  {
-				  path: 'cell phone',
-				  component: CellPhoneComponent
-			  }
-			]
-		  },
-		  {
-		    path: 'list-products',
-		    component: ListProductsComponent,
-			children: [
-			  {
-				  path: ':category',
-				  component: ProductsComponent
-			  }
-			]
-		  }
-		]
+        canActivate: [AdminAuthGuard],
+        children: [
+          {
+            path: 'customers',
+            component: ListCustomersComponent
+          },
+          {
+            path: 'add-products',
+            component: AddProductComponent,
+            children: [
+              {
+                path: 'laptop',
+                component: LaptopComponent
+              },
+              {
+                path: 'tv',
+                component: TvComponent
+              },
+              {
+                path: 'camera',
+                component: CameraComponent
+              },
+              {
+                path: 'cell phone',
+                component: CellPhoneComponent
+              }
+            ]
+          },
+          {
+            path: 'list-products',
+            component: ListProductsComponent,
+            children: [
+              {
+                path: ':category',
+                component: ProductsComponent
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -139,15 +139,15 @@ const routes: Routes = [
     RegisterComponent,
     ProductViewSidebarComponent,
     DashboardComponent,
-	AdminLoginComponent,
-	ListCustomersComponent,
-	AddProductComponent,
-	ListProductsComponent,
-	ProductsComponent,
-	LaptopComponent,
-	CameraComponent,
-	TvComponent,
-	CellPhoneComponent
+    AdminLoginComponent,
+    ListCustomersComponent,
+    AddProductComponent,
+    ListProductsComponent,
+    ProductsComponent,
+    LaptopComponent,
+    CameraComponent,
+    TvComponent,
+    CellPhoneComponent
   ],
   imports: [
     BrowserModule,
@@ -161,11 +161,12 @@ FormsModule
     CartService,
     ProductViewService,
     AuthGuard,
+    AdminAuthGuard,
     AlertService,
     AuthenticationService,
     UserService,
     CategoryProductsService,
-	AdminService
+    AdminService
   ],
   bootstrap: [AppComponent]
 })
