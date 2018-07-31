@@ -1,3 +1,161 @@
-<p>
-  camera works!
-</p>
+<div class="container my-5">
+  <div class="col-md-6 col-md-offset-2 mx-auto">
+    <h2 class="py-2">Add product: Camera</h2>
+    <form [formGroup]="laptopForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+        </div>
+		    <div class="form-group">
+            <label for="manufacturer">Manufacturer</label>
+            <input type="manufacturer" formControlName="manufacturer" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.manufacturer.errors }" />
+            <div *ngIf="submitted && f.manufacturer.errors" class="invalid-feedback">
+                <div *ngIf="f.manufacturer.errors.required">Manufacturer is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="model">Model</label>
+          <input type="model" formControlName="model" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" />
+          <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+              <div *ngIf="f.model.errors.required">Model is required</div>
+          </div>
+      </div>
+		    <div class="form-group">
+            <label for="type">Type</label>
+            <input type="type" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
+            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">Type is required</div>
+            </div>
+        </div>
+		    <div class="form-group">
+            <label for="img">image</label>
+            <input type="img" formControlName="img" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.img.errors }" />
+            <div *ngIf="submitted && f.img.errors" class="invalid-feedback">
+                <div *ngIf="f.img.errors.required">image is required</div>
+            </div>
+        </div>
+		    <div class="form-group">
+            <label for="price">price</label>
+            <input type="price" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                <div *ngIf="f.price.errors.required">Price is required</div>
+            </div>
+        </div>
+		<div formGroupName="specs">
+			<div class="form-group">
+				<label for="WiFi">WiFi</label>
+				<input type="WiFi" formControlName="WiFi" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.WiFi.errors }" />
+				<div *ngIf="submitted && s.WiFi.errors" class="invalid-feedback">
+					<div *ngIf="s.WiFi.errors.required">Screen size is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Bluetooth">Bluetooth</label>
+				<input type="Bluetooth" formControlName="Bluetooth" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Bluetooth.errors }" />
+				<div *ngIf="submitted && s.Bluetooth.errors" class="invalid-feedback">
+					<div *ngIf="s.Bluetooth.errors.required">Touch screen is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Battery_Type">Battery Type</label>
+				<input type="Battery_Type" formControlName="Battery_Type" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Battery_Type.errors }" />
+				<div *ngIf="submitted && s.Battery_Type.errors" class="invalid-feedback">
+					<div *ngIf="s.Battery_Type.errors.required">Storage type is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Back_up_Battery">Back up Battery</label>
+				<input type="Back_up_Battery" formControlName="Back_up_Battery" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Back_up_Battery.errors }" />
+				<div *ngIf="submitted && s.Back_up_Battery.errors" class="invalid-feedback">
+					<div *ngIf="s.Back_up_Battery.errors.required">Back up Battery is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Width">Width</label>
+				<input type="Width" formControlName="Width" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Width.errors }" />
+				<div *ngIf="submitted && s.Width.errors" class="invalid-feedback">
+					<div *ngIf="s.Width.errors.required">Width is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Height">Height</label>
+				<input type="Height" formControlName="Height" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Height.errors }" />
+				<div *ngIf="submitted && s.Height.errors" class="invalid-feedback">
+					<div *ngIf="s.Height.errors.required">Height is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Depth">Depth</label>
+				<input type="Depth" formControlName="Depth" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Depth.errors }" />
+				<div *ngIf="submitted && s.Depth.errors" class="invalid-feedback">
+					<div *ngIf="s.Depth.errors.required">Depth is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Weight">Weight</label>
+				<input type="Weight" formControlName="Weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Weight.errors }" />
+				<div *ngIf="submitted && s.Weight.errors" class="invalid-feedback">
+					<div *ngIf="s.Weight.errors.required">Weight is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="NFC_Enabled">NFC Enabled</label>
+				<input type="NFC_Enabled" formControlName="NFC_Enabled" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.NFC_Enabled.errors }" />
+				<div *ngIf="submitted && s.NFC_Enabled.errors" class="invalid-feedback">
+					<div *ngIf="s.NFC_Enabled.errors.required">NFC Enabled is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Sensor_Type">Sensor Type</label>
+				<input type="Sensor_Type" formControlName="Sensor_Type" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Sensor_Type.errors }" />
+				<div *ngIf="submitted && s.Sensor_Type.errors" class="invalid-feedback">
+					<div *ngIf="s.Sensor_Type.errors.required">Sensor Type is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Total_Pixels">Total Pixels number</label>
+				<input type="Total_Pixels" formControlName="Total_Pixels" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Total_Pixels.errors }" />
+				<div *ngIf="submitted && s.Total_Pixels.errors" class="invalid-feedback">
+					<div *ngIf="s.Total_Pixels.errors.required">Total Pixels number is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Effective_Pixels">Effective Pixels</label>
+				<input type="Effective_Pixels" formControlName="Effective_Pixels" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Effective_Pixels.errors }" />
+				<div *ngIf="submitted && s.Effective_Pixels.errors" class="invalid-feedback">
+					<div *ngIf="s.Effective_Pixels.errors.required">Operating system is required</div>
+				</div>
+      </div>
+      <div class="form-group">
+				<label for="Colour_Filter_System">Effective Pixels</label>
+				<input type="Colour_Filter_System" formControlName="Effective_Pixels" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Colour_Filter_System.errors }" />
+				<div *ngIf="submitted && s.Colour_Filter_System.errors" class="invalid-feedback">
+					<div *ngIf="s.Colour_Filter_System.errors.required">Colour Filter System is required</div>
+				</div>
+      </div>
+      <div class="form-group">
+				<label for="LCD_Size">LCD Size</label>
+				<input type="LCD_Size" formControlName="LCD_Size" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.LCD_Size.errors }" />
+				<div *ngIf="submitted && s.LCD_Size.errors" class="invalid-feedback">
+					<div *ngIf="s.LCD_Size.errors.required">LCD Size is required</div>
+				</div>
+      </div>
+      <div class="form-group">
+				<label for="LCD_Resolution">LCD Resolution</label>
+				<input type="LCD_Resolution" formControlName="LCD_Resolution" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.LCD_Resolution.errors }" />
+				<div *ngIf="submitted && s.LCD_Resolution.errors" class="invalid-feedback">
+					<div *ngIf="s.LCD_Resolution.errors.required">LCD Resolution is required</div>
+				</div>
+			</div>
+		</div>
+		
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Add product</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+    </form>
+  </div>
+</div>
