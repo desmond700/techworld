@@ -32,10 +32,19 @@ export class AdminService {
   }
 
   getProductObj(category) {
-    return this._http.get( `${this.baseUrl}/products/` + category );
+    return this._http.get(`${this.baseUrl}/products/` + category );
   }
 
   addProduct(laptop: Laptop) {
       return this._http.post(`${this.baseUrl}/product/laptop`, laptop);
   }
+
+  getUsers() {
+    return this._http.get(`${this.baseUrl}/users/`);
+  }
+
+  removeUsers(id: any) {
+    return this._http.delete(`${this.baseUrl}/users/`, id);
+  }
+
 }
