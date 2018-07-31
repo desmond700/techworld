@@ -33,6 +33,20 @@ router.get('/cart', function(req, res) {
     })
 }); 
 
+// Get all users 
+router.get('/users', function(req, res) { 
+    console.log("Get request for users"); 
+
+    User.find({}).exec(function(err, user){ 
+        if(err) { 
+            console.log("Error retrieving users."); 
+        } 
+        else { 
+            res.json(user); 
+        } 
+    })
+}); 
+
 // Get all products data
 router.get('/products/:category', function(req, res) { 
     console.log("Get request for products"); 
