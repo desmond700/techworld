@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
 
   baseUrl: any = 'http://localhost:3000/api/';
+  user = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +28,18 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        if (localStorage.getItem('currentUser')) {
+            localStorage.removeItem('currentUser');
+        } else {
+            localStorage.removeItem('admin');
+        }
+    }
+
+    setUser(user: any): void {
+        this.user.next(user);
+    }
+
+    getUser(): any {
+        return this.user.asObservable();
     }
 }
