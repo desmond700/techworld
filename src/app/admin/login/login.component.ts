@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { AuthenticationService } from 'src/app/auth/auth.service';
 import { AlertService } from '../../user/alert.service';
 import { first } from 'rxjs/operators';
 
@@ -22,7 +23,8 @@ export class AdminLoginComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private alertService: AlertService,
-              private authenticationService: AdminService) { }
+              private adminService: AdminService,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -31,7 +33,7 @@ export class AdminLoginComponent implements OnInit {
     });
 
     // reset login status
-    this.authenticationService.logout();
+    this.adminService.logout();
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -51,10 +53,11 @@ export class AdminLoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.adminService.login(this.f.username.value, this.f.password.value)
         .pipe(first())
         .subscribe(
             data => {
+                this.authenticationService.setUser(data);
                 this.router.navigate(['admin', 'dashboard']);
             },
             error => {
