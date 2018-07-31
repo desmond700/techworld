@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="col-md-6 col-md-offset-2 mx-auto">
-    <h2 class="py-2">Login</h2>
+    <h2 class="py-2">Add Product: Laptop</h2>
     <form [formGroup]="laptopForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
@@ -31,10 +31,10 @@
             </div>
         </div>
 		<div class="form-group">
-            <label for="img">img</label>
+            <label for="img">Image</label>
             <input type="img" formControlName="img" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.img.errors }" />
             <div *ngIf="submitted && f.img.errors" class="invalid-feedback">
-                <div *ngIf="f.img.errors.required">img is required</div>
+                <div *ngIf="f.img.errors.required">image is required</div>
             </div>
         </div>
 		<div class="form-group">
@@ -132,9 +132,8 @@
 		</div>
 		
         <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary">Login</button>
+            <button [disabled]="loading" class="btn btn-primary">Add product</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <a [routerLink]="['/signup']" class="btn btn-link">Register</a>
         </div>
     </form>
   </div>
