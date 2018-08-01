@@ -126,12 +126,12 @@
 				<label for="Effective_Pixels">Effective Pixels</label>
 				<input type="Effective_Pixels" formControlName="Effective_Pixels" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Effective_Pixels.errors }" />
 				<div *ngIf="submitted && s.Effective_Pixels.errors" class="invalid-feedback">
-					<div *ngIf="s.Effective_Pixels.errors.required">Operating system is required</div>
+					<div *ngIf="s.Effective_Pixels.errors.required">Effective Pixels is required</div>
 				</div>
       </div>
       <div class="form-group">
-				<label for="Colour_Filter_System">Effective Pixels</label>
-				<input type="Colour_Filter_System" formControlName="Effective_Pixels" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Colour_Filter_System.errors }" />
+				<label for="Colour_Filter_System">Colour Filter</label>
+				<input type="Colour_Filter_System" formControlName="Colour_Filter_System" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Colour_Filter_System.errors }" />
 				<div *ngIf="submitted && s.Colour_Filter_System.errors" class="invalid-feedback">
 					<div *ngIf="s.Colour_Filter_System.errors.required">Colour Filter System is required</div>
 				</div>

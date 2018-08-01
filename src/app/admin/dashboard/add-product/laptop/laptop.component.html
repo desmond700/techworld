@@ -45,6 +45,8 @@
             </div>
         </div>
 		<div formGroupName="specs">
+			<h3>Specifications:</h3>
+			<hr>
 			<div class="form-group">
 				<label for="Screen_size">Screen size</label>
 				<input type="Screen_size" formControlName="Screen_size" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Screen_size.errors }" />
@@ -130,7 +132,45 @@
 				</div>
 			</div>
 		</div>
-		
+		<div formGroupName="bulletpoints">
+			<h3>Bullet points:</h3>
+			<hr>
+			<div class="form-group">
+				<label for="point1">point 1</label>
+				<input type="point1" formControlName="point1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point1.errors }" />
+				<div *ngIf="submitted && f.controls.bulletpoints.point1.errors" class="invalid-feedback">
+					<div *ngIf="f.controls.bulletpoints.point1.errors.required">point 1 is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="point2">point 2</label>
+				<input type="point2" formControlName="point2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point2.errors }" />
+				<div *ngIf="submitted && f.controls.bulletpoints.point2.errors" class="invalid-feedback">
+					<div *ngIf="f.controls.bulletpoints.point2.errors.required">point 2 is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="point3">point 3</label>
+				<input type="point3" formControlName="point3" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point3.errors }" />
+				<div *ngIf="submitted && f.controls.bulletpoints.point3.errors" class="invalid-feedback">
+					<div *ngIf="f.controls.bulletpoints.point3.errors.required">point 3 is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="point4">point 4</label>
+				<input type="point4" formControlName="point4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point4.errors }" />
+				<div *ngIf="submitted && f.controls.bulletpoints.point4.errors" class="invalid-feedback">
+					<div *ngIf="f.controls.bulletpoints.point4.errors.required">point 4 is required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="point5">point 5</label>
+				<input type="point5" formControlName="point5" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point5.errors }" />
+				<div *ngIf="submitted && f.controls.bulletpoints.point5.errors" class="invalid-feedback">
+					<div *ngIf="f.controls.bulletpoints.point5.errors.required">point 5 is required</div>
+				</div>
+			</div>
+		</div>
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Add product</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
