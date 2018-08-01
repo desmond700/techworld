@@ -16,6 +16,7 @@ import { NavigationCancel,
 })
 export class AppComponent {
   user: any;
+  userType: any;
 
   constructor(private _loadingBar: SlimLoadingBarService,
 			  private _router: Router,
@@ -26,7 +27,11 @@ export class AppComponent {
 	  });
 
 	  this.authenticationService.getUser().subscribe(
-		  res => { this.user = res; }
+		  res => {
+			  this.user = res;
+			  this.userType = localStorage.getItem('userType');
+			  console.log('user: ' + this.user + '\nuserType: ' + this.userType);
+			}
 	  );
 	  console.log(this.user);
   }
