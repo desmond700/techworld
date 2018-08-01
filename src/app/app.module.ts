@@ -38,8 +38,8 @@ import { CellPhoneComponent } from './admin/dashboard/add-product/cell-phone/cel
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: HomeComponent
+    // canActivate: [AuthGuard]
   },
   {
     path: 'signup',
