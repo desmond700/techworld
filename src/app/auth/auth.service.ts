@@ -8,18 +8,19 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class AuthenticationService {
 
-  baseUrl: any = 'http://localhost:3000/api/';
-  user = new BehaviorSubject<any>(null);
+  baseUrl: any = 'http://localhost:3000/api';
+  user: any = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`${this.baseUrl}/login`, { username: username, password: password })
+    login(username: string, password: string, endPoint: string) {
+        return this.http.post<any>(this.baseUrl + endPoint, { username: username, password: password })
             .pipe(map(user => {
+                console.log('username: ' + user.username);
                 // login successful if there's a jwt token in the response
-                if (user && user.token) {
+                if (user.username !== null) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('currentUser', user.username);
                 }
 
                 return user;
@@ -28,11 +29,8 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        if (localStorage.getItem('currentUser')) {
-            localStorage.removeItem('currentUser');
-        } else {
-            localStorage.removeItem('admin');
-        }
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('userType');
     }
 
     setUser(user: any): void {

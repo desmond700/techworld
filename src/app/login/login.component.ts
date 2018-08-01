@@ -48,11 +48,12 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.username.value, this.f.password.value, '/login')
         .pipe(first())
         .subscribe(
             data => {
-				this.authenticationService.setUser(data);
+                localStorage.setItem('userType', 'customer');
+                this.authenticationService.setUser(data);
                 this.router.navigate([this.returnUrl]);
             },
             error => {

@@ -33,7 +33,7 @@ export class AdminLoginComponent implements OnInit {
     });
 
     // reset login status
-    this.adminService.logout();
+    this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -44,19 +44,19 @@ export class AdminLoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('username: ' + this.f.username.value + 'password: ' + this.f.password.value);
 
-    console.log('invalid: ' + this.loginForm.invalid);
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
     }
 
     this.loading = true;
-    this.adminService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.username.value, this.f.password.value, '/admin/login')
         .pipe(first())
         .subscribe(
             data => {
+                console.log('data: ' + data);
+                localStorage.setItem('userType', 'admin');
                 this.authenticationService.setUser(data);
                 this.router.navigate(['admin', 'dashboard']);
             },
