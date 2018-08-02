@@ -10,12 +10,7 @@
 				<p class=" mt-4">Model: {{product.model}}</p>
 				<hr>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li *ngFor="let points of product.bulletpoints">{{points}}</li>
 				</ul>
 			</div>
 			<div class="col-md-3">
