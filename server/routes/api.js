@@ -162,7 +162,7 @@ router.post('/product/camera', function(req, res) {
 });
 
 // Add product to database
-router.post('/product/cell_phone', function(req, res) { 
+router.post('/product/cell-phone', function(req, res) { 
 	 
 	Cell_phone.save(function(err, Product){ 
 		if(err) { 
