@@ -27,31 +27,38 @@ export class LaptopComponent implements OnInit {
   ngOnInit() {
     this.laptopForm = this.formBuilder.group({
         name: ['', Validators.required],
-        brand: ['', Validators.required],
-		manufacturer: ['', Validators.required],
-		type: ['', Validators.required],
-		img: ['', Validators.required],
-		price: ['', Validators.required],
-		specs: this.formBuilder.group({
-			Screen_size: ['', Validators.required],
+        manufacturer: ['', Validators.required],
+        model: ['', Validators.required],
+        type: ['', Validators.required],
+        img: ['', Validators.required],
+        price: ['', Validators.required],
+        specs: this.formBuilder.group({
+            Screen_size: ['', Validators.required],
             Touch_screen: ['', Validators.required],
-			Storage_type: ['', Validators.required],
-			Hard_drive_type: ['', Validators.required],
-			Hard_drive_capacity: ['', Validators.required],
-			Solid_state_drive_capacity: ['', Validators.required],
-			Graphics: ['', Validators.required],
-			System_memory: ['', Validators.required],
-			Processor_speed: ['', Validators.required],
-			Processor_model: ['', Validators.required],
-			Processor_model_number: ['', Validators.required],
-			Operating_system: ['', Validators.required]
-		})
+            Storage_type: ['', Validators.required],
+            Hard_drive_type: ['', Validators.required],
+            Hard_drive_capacity: ['', Validators.required],
+            Solid_state_drive_capacity: ['', Validators.required],
+            Graphics: ['', Validators.required],
+            System_memory: ['', Validators.required],
+            Processor_speed: ['', Validators.required],
+            Processor_model: ['', Validators.required],
+            Processor_model_number: ['', Validators.required],
+            Operating_system: ['', Validators.required]
+        }),
+        bulletpoints: this.formBuilder.group({
+            point1: ['', Validators.required],
+            point2: ['', Validators.required],
+            point3: ['', Validators.required],
+            point4: ['', Validators.required],
+            point5: ['', Validators.required]
+        })
     });
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.laptopForm.controls; }
-  
+
   get s() { return (this.laptopForm.get('specs') as FormGroup).controls; }
 
   onSubmit() {
@@ -61,13 +68,13 @@ export class LaptopComponent implements OnInit {
     if (this.laptopForm.invalid) {
         return;
     }
-	console.log(this.laptopForm.value);
+    console.log(this.laptopForm.value);
     this.loading = true;
-    this.adminService.addProduct(this.laptopForm.value)
+    this.adminService.addLaptop(this.laptopForm.value)
         .pipe(first())
         .subscribe(
             data => {
-                //this.router.navigate([this.returnUrl]);
+                // this.router.navigate([this.returnUrl]);
             },
             error => {
                 this.alertService.error(error);

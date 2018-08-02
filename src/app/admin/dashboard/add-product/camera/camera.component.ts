@@ -48,6 +48,13 @@ export class CameraComponent implements OnInit {
             Colour_Filter_System: ['', Validators.required],
             LCD_Size: ['', Validators.required],
             LCD_Resolution: ['', Validators.required]
+        }),
+        bulletpoints: this.formBuilder.group({
+            point1: ['', Validators.required],
+            point2: ['', Validators.required],
+            point3: ['', Validators.required],
+            point4: ['', Validators.required],
+            point5: ['', Validators.required]
         })
     });
   }
@@ -66,7 +73,7 @@ export class CameraComponent implements OnInit {
     }
   console.log(this.cameraForm.value);
     this.loading = true;
-    this.adminService.addProduct(this.cameraForm.value)
+    this.adminService.addCamera(this.cameraForm.value)
         .pipe(first())
         .subscribe(
             data => {
