@@ -10,18 +10,18 @@ const productsSchema = new Schema({
 	img: String,
     price: String,
 	specs:{
-		Part_Number	: String,
-        Scanner_Resolution: String,
-        Number_Of_Items: String,
-        Display_Technology: String,
+		Screen_Technology: String,
+        WiFi: String,
+        Speakers: String,
+        Panel_Type: String,
         Display_Size: String,
-        Display_Type: String,
+        Headphone_Jack: String,
         Image_Aspect_Ratio: String,
-        Are_Batteries_Included: String,
-        Batteries_Required: String,
+        Display_Resolution: String,
+        VGA_Port: String,
         Refresh_Rate: String,
         Includes_Remote: String,
-        Operating_system: String
+        ThreeD_Ready: String
 	},
 	bulletpoints:{
 		point1: String,
