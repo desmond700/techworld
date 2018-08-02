@@ -34,6 +34,11 @@ import { LaptopComponent } from './admin/dashboard/add-product/laptop/laptop.com
 import { CameraComponent } from './admin/dashboard/add-product/camera/camera.component';
 import { TvComponent } from './admin/dashboard/add-product/tv/tv.component';
 import { CellPhoneComponent } from './admin/dashboard/add-product/cell-phone/cell-phone.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap';
+
 
 const routes: Routes = [
   {
@@ -153,9 +158,13 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-SlimLoadingBarModule,
-ReactiveFormsModule,
-FormsModule
+	SlimLoadingBarModule,
+	ReactiveFormsModule,
+	FormsModule,
+	BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+	CollapseModule
   ],
   providers: [
     CartService,
