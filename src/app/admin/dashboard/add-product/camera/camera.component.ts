@@ -64,6 +64,8 @@ export class CameraComponent implements OnInit {
 
   get s() { return (this.cameraForm.get('specs') as FormGroup).controls; }
 
+  get b() { return (this.cameraForm.get('bulletpoints') as FormGroup).controls; }
+
   onSubmit() {
     this.submitted = true;
 

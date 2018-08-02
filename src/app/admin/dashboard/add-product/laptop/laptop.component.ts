@@ -61,6 +61,8 @@ export class LaptopComponent implements OnInit {
 
   get s() { return (this.laptopForm.get('specs') as FormGroup).controls; }
 
+  get b() { return (this.laptopForm.get('bulletpoints') as FormGroup).controls; }
+
   onSubmit() {
     this.submitted = true;
 

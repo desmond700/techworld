@@ -32,18 +32,18 @@ export class TvComponent implements OnInit {
       img: ['', Validators.required],
       price: ['', Validators.required],
       specs: this.formBuilder.group({
-          Part_Number: ['', Validators.required],
-          Scanner_Resolution: ['', Validators.required],
-          Number_Of_Items: ['', Validators.required],
-          Display_Technology: ['', Validators.required],
+          Screen_Technology: ['', Validators.required],
+          WiFi: ['', Validators.required],
+          Speakers: ['', Validators.required],
+          Panel_Type: ['', Validators.required],
           Display_Size: ['', Validators.required],
-          Display_Type: ['', Validators.required],
+          Headphone_Jack: ['', Validators.required],
           Image_Aspect_Ratio: ['', Validators.required],
-          Are_Batteries_Included: ['', Validators.required],
-          Batteries_Required: ['', Validators.required],
+          Display_Resolution: ['', Validators.required],
+          VGA_Port: ['', Validators.required],
           Refresh_Rate: ['', Validators.required],
           Includes_Remote: ['', Validators.required],
-          Operating_system: ['', Validators.required]
+          ThreeD_Ready: ['', Validators.required]
       }),
       bulletpoints: this.formBuilder.group({
         point1: ['', Validators.required],
@@ -59,6 +59,8 @@ export class TvComponent implements OnInit {
   get f() { return this.tvForm.controls; }
 
   get s() { return (this.tvForm.get('specs') as FormGroup).controls; }
+
+  get b() { return (this.tvForm.get('bulletpoints') as FormGroup).controls; }
 
   onSubmit() {
     this.submitted = true;

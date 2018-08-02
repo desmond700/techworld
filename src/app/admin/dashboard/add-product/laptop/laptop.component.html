@@ -9,20 +9,20 @@
                 <div *ngIf="f.name.errors.required">Name is required</div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="brand">brand</label>
-            <input type="brand" formControlName="brand" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.brand.errors }" />
-            <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
-                <div *ngIf="f.brand.errors.required">Brand is required</div>
-            </div>
-        </div>
 		<div class="form-group">
             <label for="manufacturer">Manufacturer</label>
             <input type="manufacturer" formControlName="manufacturer" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.manufacturer.errors }" />
             <div *ngIf="submitted && f.manufacturer.errors" class="invalid-feedback">
                 <div *ngIf="f.manufacturer.errors.required">Manufacturer is required</div>
             </div>
-        </div>
+		</div>
+		<div class="form-group">
+			<label for="model">Model</label>
+			<input type="model" formControlName="model" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" />
+			<div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+				<div *ngIf="f.model.errors.required">Model is required</div>
+			</div>
+		</div>
 		<div class="form-group">
             <label for="type">Type</label>
             <input type="type" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
@@ -137,37 +137,37 @@
 			<hr>
 			<div class="form-group">
 				<label for="point1">point 1</label>
-				<input type="point1" formControlName="point1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point1.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point1.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point1.errors.required">point 1 is required</div>
+				<input type="point1" formControlName="point1" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point1.errors }" />
+				<div *ngIf="submitted && b.point1.errors" class="invalid-feedback">
+					<div *ngIf="b.point1.errors.required">point 1 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point2">point 2</label>
-				<input type="point2" formControlName="point2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point2.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point2.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point2.errors.required">point 2 is required</div>
+				<input type="point2" formControlName="point2" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point2.errors }" />
+				<div *ngIf="submitted && b.point2.errors" class="invalid-feedback">
+					<div *ngIf="b.point2.errors.required">point 2 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point3">point 3</label>
-				<input type="point3" formControlName="point3" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point3.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point3.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point3.errors.required">point 3 is required</div>
+				<input type="point3" formControlName="point3" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point3.errors }" />
+				<div *ngIf="submitted && b.point3.errors" class="invalid-feedback">
+					<div *ngIf="b.point3.errors.required">point 3 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point4">point 4</label>
-				<input type="point4" formControlName="point4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point4.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point4.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point4.errors.required">point 4 is required</div>
+				<input type="point4" formControlName="point4" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point4.errors }" />
+				<div *ngIf="submitted && b.point4.errors" class="invalid-feedback">
+					<div *ngIf="b.point4.errors.required">point 4 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point5">point 5</label>
-				<input type="point5" formControlName="point5" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point5.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point5.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point5.errors.required">point 5 is required</div>
+				<input type="point5" formControlName="point5" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point5.errors }" />
+				<div *ngIf="submitted && b.point5.errors" class="invalid-feedback">
+					<div *ngIf="b.point5.errors.required">point 5 is required</div>
 				</div>
 			</div>
 		</div>

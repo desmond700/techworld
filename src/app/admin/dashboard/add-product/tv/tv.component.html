@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="col-md-6 col-md-offset-2 mx-auto">
     <h2 class="py-2">Add product: Tv</h2>
-    <form [formGroup]="laptopForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="tvForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
@@ -48,31 +48,31 @@
 			<h3>Specifications:</h3>
 			<hr>
 			<div class="form-group">
-				<label for="Part_Number">Part_Number</label>
-				<input type="Part_Number" formControlName="Part_Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Part_Number.errors }" />
-				<div *ngIf="submitted && s.Part_Number.errors" class="invalid-feedback">
-					<div *ngIf="s.Part_Number.errors.required">Part Number is required</div>
+				<label for="Screen_Technology">Screen Technology</label>
+				<input type="Screen_Technology" formControlName="Screen_Technology" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Screen_Technology.errors }" />
+				<div *ngIf="submitted && s.Screen_Technology.errors" class="invalid-feedback">
+					<div *ngIf="s.Screen_Technology.errors.required">Screen Technology is required</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Scanner_Resolution">Scanner Resolution</label>
-				<input type="Scanner_Resolution" formControlName="Scanner_Resolution" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Scanner_Resolution.errors }" />
-				<div *ngIf="submitted && s.Scanner_Resolution.errors" class="invalid-feedback">
-					<div *ngIf="s.Scanner_Resolution.errors.required">Scanner Resolution is required</div>
+				<label for="WiFi">Wireless (Wi-Fi)</label>
+				<input type="WiFi" formControlName="WiFi" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.WiFi.errors }" />
+				<div *ngIf="submitted && s.WiFi.errors" class="invalid-feedback">
+					<div *ngIf="s.WiFi.errors.required">Wireless (Wi-Fi) is required</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Number_Of_Items">Number Of Items</label>
-				<input type="Number_Of_Items" formControlName="Number_Of_Items" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Number_Of_Items.errors }" />
-				<div *ngIf="submitted && s.Number_Of_Items.errors" class="invalid-feedback">
-					<div *ngIf="s.Number_Of_Items.errors.required">Number Of Items is required</div>
+				<label for="Speakers">Speakers</label>
+				<input type="Speakers" formControlName="Speakers" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Speakers.errors }" />
+				<div *ngIf="submitted && s.Speakers.errors" class="invalid-feedback">
+					<div *ngIf="s.Speakers.errors.required">Speakers is required</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Display_Technology">Display Technology</label>
-				<input type="Display_Technology" formControlName="Display_Technology" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Display_Technology.errors }" />
-				<div *ngIf="submitted && s.Display_Technology.errors" class="invalid-feedback">
-					<div *ngIf="s.Display_Technology.errors.required">Display Technology is required</div>
+				<label for="Panel_Type">Panel Type</label>
+				<input type="Panel_Type" formControlName="Panel_Type" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Panel_Type.errors }" />
+				<div *ngIf="submitted && s.Panel_Type.errors" class="invalid-feedback">
+					<div *ngIf="s.Panel_Type.errors.required">Panel Type is required</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -83,10 +83,10 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Display_Type">Display Type</label>
-				<input type="Display_Type" formControlName="Display_Type" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Display_Type.errors }" />
-				<div *ngIf="submitted && s.Display_Type.errors" class="invalid-feedback">
-					<div *ngIf="s.Display_Type.errors.required">Display Type is required</div>
+				<label for="Headphone_Jack">Headphone Jack</label>
+				<input type="Headphone_Jack" formControlName="Headphone_Jack" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Headphone_Jack.errors }" />
+				<div *ngIf="submitted && s.Headphone_Jack.errors" class="invalid-feedback">
+					<div *ngIf="s.Headphone_Jack.errors.required">Headphone Jack is required</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -97,17 +97,17 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Are_Batteries_Included">Are Batteries Included</label>
-				<input type="Are_Batteries_Included" formControlName="Are_Batteries_Included" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Are_Batteries_Included.errors }" />
-				<div *ngIf="submitted && s.Are_Batteries_Included.errors" class="invalid-feedback">
-					<div *ngIf="s.Are_Batteries_Included.errors.required">Are Batteries Included is required</div>
+				<label for="Display_Resolution">Display Resolution</label>
+				<input type="Display_Resolution" formControlName="Display_Resolution" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Display_Resolution.errors }" />
+				<div *ngIf="submitted && s.Display_Resolution.errors" class="invalid-feedback">
+					<div *ngIf="s.Display_Resolution.errors.required">Display Resolution is required</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Batteries_Required">Batteries Required</label>
-				<input type="Batteries_Required" formControlName="Batteries_Required" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Batteries_Required.errors }" />
-				<div *ngIf="submitted && s.Batteries_Required.errors" class="invalid-feedback">
-					<div *ngIf="s.Batteries_Required.errors.required">Batteries Required is required</div>
+				<label for="VGA_Port">VGA Port</label>
+				<input type="VGA_Port" formControlName="VGA_Port" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.VGA_Port.errors }" />
+				<div *ngIf="submitted && s.VGA_Port.errors" class="invalid-feedback">
+					<div *ngIf="s.VGA_Port.errors.required">VGA Port is required</div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -125,47 +125,49 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="Operating_system">Operating system</label>
-				<input type="Operating_system" formControlName="Operating_system" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.Operating_system.errors }" />
-				<div *ngIf="submitted && s.Operating_system.errors" class="invalid-feedback">
-					<div *ngIf="s.Operating_system.errors.required">Operating system is required</div>
+				<label for="ThreeD_Ready">3D Ready</label>
+				<input type="ThreeD_Ready" formControlName="ThreeD_Ready" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.ThreeD_Ready.errors }" />
+				<div *ngIf="submitted && s.ThreeD_Ready.errors" class="invalid-feedback">
+					<div *ngIf="s.ThreeD_Ready.errors.required">3D Ready is required</div>
 				</div>
 			</div>
 		</div>
 		<div formGroupName="bulletpoints">
+			<h3>bulletpoints:</h3>
+			<hr>
 			<div class="form-group">
 				<label for="point1">point 1</label>
-				<input type="point1" formControlName="point1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point1.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point1.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point1.errors.required">point 1 is required</div>
+				<input type="point1" formControlName="point1" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point1.errors }" />
+				<div *ngIf="submitted && b.point1.errors" class="invalid-feedback">
+					<div *ngIf="b.point1.errors.required">point 1 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point2">point 2</label>
-				<input type="point2" formControlName="point2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point2.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point2.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point2.errors.required">point 2 is required</div>
+				<input type="point2" formControlName="point2" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point2.errors }" />
+				<div *ngIf="submitted && b.point2.errors" class="invalid-feedback">
+					<div *ngIf="b.point2.errors.required">point 2 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point3">point 3</label>
-				<input type="point3" formControlName="point3" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point3.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point3.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point3.errors.required">point 3 is required</div>
+				<input type="point3" formControlName="point3" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point3.errors }" />
+				<div *ngIf="submitted && b.point3.errors" class="invalid-feedback">
+					<div *ngIf="b.point3.errors.required">point 3 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point4">point 4</label>
-				<input type="point4" formControlName="point4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point4.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point4.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point4.errors.required">point 4 is required</div>
+				<input type="point4" formControlName="point4" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point4.errors }" />
+				<div *ngIf="submitted && b.point4.errors" class="invalid-feedback">
+					<div *ngIf="b.point4.errors.required">point 4 is required</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="point5">point 5</label>
-				<input type="point5" formControlName="point5" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.controls.bulletpoints.point5.errors }" />
-				<div *ngIf="submitted && f.controls.bulletpoints.point5.errors" class="invalid-feedback">
-					<div *ngIf="f.controls.bulletpoints.point5.errors.required">point 5 is required</div>
+				<input type="point5" formControlName="point5" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.point5.errors }" />
+				<div *ngIf="submitted && b.point5.errors" class="invalid-feedback">
+					<div *ngIf="b.point5.errors.required">point 5 is required</div>
 				</div>
 			</div>
 		</div>

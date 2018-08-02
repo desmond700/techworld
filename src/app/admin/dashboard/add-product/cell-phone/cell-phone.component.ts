@@ -33,25 +33,26 @@ export class CellPhoneComponent implements OnInit {
       img: ['', Validators.required],
       price: ['', Validators.required],
       specs: this.formBuilder.group({
-          Bluetooth: ['', Validators.required],
-          CPU: ['', Validators.required],
-          RAM_Size: ['', Validators.required],
-          SIM_Card: ['', Validators.required],
-          Battery_Talk_Time: ['', Validators.required],
-          Battery_Type: ['', Validators.required],
-          Supported_Network_Bands: ['', Validators.required],
-          NFC: ['', Validators.required],
-          Headphone_Jack: ['', Validators.required],
-          Rear_Camera_Resolution: ['', Validators.required],
-          Front_Video_Capture_Resolution: ['', Validators.required],
-          Camera_Flash: ['', Validators.required],
-          Display_Resolution: ['', Validators.required],
-          Display_Size: ['', Validators.required],
-          Fingerprint_Scanning: ['', Validators.required],
-          Operating_system: ['', Validators.required],
-          Dimensions_cm: ['', Validators.required],
-          Dimensions_in: ['', Validators.required],
-          Weight: ['', Validators.required],
+        Bluetooth: ['', Validators.required],
+        Memory_Built_in: ['', Validators.required],
+        CPU: ['', Validators.required],
+        RAM_Size: ['', Validators.required],
+        SIM_Card: ['', Validators.required],
+        Battery_Talk_Time: ['', Validators.required],
+        Battery_Type: ['', Validators.required],
+        Supported_Network_Bands: ['', Validators.required],
+        NFC: ['', Validators.required],
+        Headphone_Jack: ['', Validators.required],
+        Rear_Camera_Resolution: ['', Validators.required],
+        Front_Video_Capture_Resolution: ['', Validators.required],
+        Camera_Flash: ['', Validators.required],
+        Display_Resolution: ['', Validators.required],
+        Display_Size: ['', Validators.required],
+        Fingerprint_Scanning: ['', Validators.required],
+        Operating_system: ['', Validators.required],
+        Dimensions_cm: ['', Validators.required],
+        Dimensions_in: ['', Validators.required],
+        Weight: ['', Validators.required]
       }),
       bulletpoints: this.formBuilder.group({
         point1: ['', Validators.required],
@@ -67,6 +68,8 @@ export class CellPhoneComponent implements OnInit {
   get f() { return this.cellphoneForm.controls; }
 
   get s() { return (this.cellphoneForm.get('specs') as FormGroup).controls; }
+
+  get b() { return (this.cellphoneForm.get('bulletpoints') as FormGroup).controls; }
 
   onSubmit() {
     this.submitted = true;
