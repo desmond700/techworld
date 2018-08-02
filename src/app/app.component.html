@@ -3,22 +3,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
   <a routerLink="" routerLinkActive="active" class="navbar-brand">TechWorld</a>
-  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse d-flex justify-content-between" [collapse]="">
+  <div class="collapse navbar-collapse d-flex justify-content-between">
     <ul class="navbar-nav float-left">
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle role="button" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a dropdownToggle role="button" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Department
         </a>
         <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/products/laptop">Laptops</a>
           <a class="dropdown-item" routerLink="/products/camera">Cameras</a>
           <a class="dropdown-item" routerLink="/products/tv">Tvs</a>
-          <a class="dropdown-item" routerLink="/products/cell phone">Cell phones</a>
-		  <a class="dropdown-item" routerLink="/products/home appliance">Home appliances</a>
+          <a class="dropdown-item" routerLink="/products/cellphone">Cell phones</a>
         </div>
       </li>
     </ul>
@@ -35,7 +34,7 @@
         <a routerLink="/cart" routerLinkActive="active" class="nav-link d-flex"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:28px"></i> <span class="my-auto px-1">(0) items</span></a>
       </li>
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

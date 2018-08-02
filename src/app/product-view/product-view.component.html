@@ -10,7 +10,11 @@
 				<p class=" mt-4">Model: {{product.model}}</p>
 				<hr>
 				<ul>
-					<li *ngFor="let points of product.bulletpoints">{{points}}</li>
+					<li>{{product.bulletpoints.point1}}</li>
+					<li>{{product.bulletpoints.point2}}</li>
+					<li>{{product.bulletpoints.point3}}</li>
+					<li>{{product.bulletpoints.point4}}</li>
+					<li>{{product.bulletpoints.point5}}</li>
 				</ul>
 			</div>
 			<div class="col-md-3">
@@ -23,7 +27,52 @@
 	<div class="col-md-12">
 		<h4>Specifications:</h4>
 		<hr>
-		<ul class="list-group list-group-flush">
+		<ul *ngIf="product.type === 'laptop'" class="list-group list-group-flush">
+			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+		</ul>
+
+		<ul *ngIf="product.type === 'tv'" class="list-group list-group-flush">
+			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+		</ul>
+
+		<ul *ngIf="product.type === 'camera'" class="list-group list-group-flush">
+			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+		</ul>
+
+		<ul *ngIf="product.type === 'cellphone'" class="list-group list-group-flush">
 			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
 			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
 			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
