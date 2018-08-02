@@ -5,7 +5,7 @@ export class Laptop {
     type: String;
 	img: String;
     price: String;
-	specs:{
+	specs: {
 		Screen_size: String;
         Touch_screen: String;
         Storage_type: String;
@@ -19,4 +19,4 @@ export class Laptop {
         Processor_model_number: String;
         Operating_system: String;
 	};
-};
+}
