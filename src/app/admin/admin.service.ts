@@ -16,8 +16,20 @@ export class AdminService {
     return this._http.get(`${this.baseUrl}/products/` + category );
   }
 
-  addProduct(laptop: Laptop) {
+  addLaptop(laptop: Laptop) {
       return this._http.post(`${this.baseUrl}/product/laptop`, laptop);
+  }
+
+  addCamera(camera: any) {
+    return this._http.post(`${this.baseUrl}/product/camera`, camera);
+  }
+
+  addTv(tv: any) {
+    return this._http.post(`${this.baseUrl}/product/tv`, tv);
+  }
+
+  addCellphone(cellphone: any) {
+    return this._http.post(`${this.baseUrl}/product/cell-phone`, cellphone);
   }
 
   getUsers() {
