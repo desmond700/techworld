@@ -139,8 +139,9 @@ router.post('/product/laptop', function(req, res) {
 
 // Add product to database
 router.post('/product/tv', function(req, res) { 
-	 
-	Tv.save(function(err, Product){ 
+	let tvData = req.body;
+    let tv = new Tv(tvData); 
+	tv.save(function(err, Product){ 
 		if(err) { 
 			console.log(err);
 		} else { 
@@ -151,8 +152,9 @@ router.post('/product/tv', function(req, res) {
 
 // Add product to database
 router.post('/product/camera', function(req, res) { 
-	 
-	Camera.save(function(err, Product){ 
+	let cameraData = req.body;
+    let camera = new Camera(cameraData);
+	camera.save(function(err, Product){ 
 		if(err) { 
 			console.log(err);
 		} else { 
@@ -163,8 +165,9 @@ router.post('/product/camera', function(req, res) {
 
 // Add product to database
 router.post('/product/cell-phone', function(req, res) { 
-	 
-	Cell_phone.save(function(err, Product){ 
+    let cellphoneData = req.body;
+    let cell_phone = new Cell_phone(cellphoneData);
+	cell_phone.save(function(err, Product){ 
 		if(err) { 
 			console.log(err);
 		} else { 
