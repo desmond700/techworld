@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { AuthenticationService } from 'src/app/auth/auth.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NavigationCancel,
 	Event,
 	NavigationEnd,
@@ -17,9 +18,11 @@ import { NavigationCancel,
 export class AppComponent {
   user: any;
   userType: any;
+  modalRef: BsModalRef;
 
   constructor(private _loadingBar: SlimLoadingBarService,
 			  private _router: Router,
+			  private modalService: BsModalService,
 		  	  private authenticationService: AuthenticationService) {
 
 	  this._router.events.subscribe((event: Event) => {
@@ -34,6 +37,10 @@ export class AppComponent {
 			}
 	  );
 	  console.log(this.user);
+  }
+
+  public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template); // {3}
   }
 
   logout() {

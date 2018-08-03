@@ -55,11 +55,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'products/:category',
+    path: 'products',
     component: ProductListComponent,
     children: [
     {
-        path: '',
+        path: ':category',
         component: CategoryProductsComponent
       },
       {
