@@ -1,8 +1,17 @@
-<div class="card" *ngFor="let value of products">
-    <img src="{{value.img}}" width="200" />
-    <div class="card-body">
-      <h5 class="card-title">{{value.name}}</h5>
-      <p class="card-text">CDN$ {{value.price}}</p>
-      <a [routerLink]="['view',value._id]" class="btn btn-primary">Go somewhere</a>
-    </div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3" *ngFor="let value of products">
+			<div class="card">
+				<a routerLink="view/{{value._id}}" class="d-flex">
+					<div class="mx-auto">
+					   <img class="img-fluid" src="{{value.img}}" width="200" />
+					</div> 
+				</a>
+				<div class="card-body">
+					<a [routerLink]="['view',value._id]" class="card-title">{{value.name}}</a>
+					<p class="card-text text-danger">CDN$ {{value.price}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

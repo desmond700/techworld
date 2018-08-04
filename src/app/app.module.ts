@@ -43,7 +43,8 @@ import { CollapseModule } from 'ngx-bootstrap';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'store',
+	pathMatch: 'full'
     // canActivate: [AuthGuard]
   },
   {
@@ -55,16 +56,16 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'products',
+    path: 'store/product/:category',
     component: ProductListComponent,
     children: [
-    {
-        path: ':category',
-        component: CategoryProductsComponent
+	  {
+        path: '',
+	    component: CategoryProductsComponent
       },
       {
         path: 'view/:id',
-        component: ProductViewComponent
+	    component: ProductViewComponent
       }
     ]
   },
