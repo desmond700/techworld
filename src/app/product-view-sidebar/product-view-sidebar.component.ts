@@ -16,30 +16,29 @@ export class ProductViewSidebarComponent implements OnInit {
   quantityVal: any;
 
   constructor(private _product: ProductViewService,
-			  private router: Router,
-			  private _cart: CartService) { }
+              private router: Router,
+              private _cart: CartService) { }
 
   ngOnInit() {
     this._product.getProductInfo().subscribe(res => { this.productInfo = res; });
   }
-  
+
   onSubmit() {
-	  
-	  this._cart.addToCart(this.productInfo).pipe(first()).subscribe(
+    this.productInfo.quantity = this.quantityVal;
+    this._cart.addToCart(this.productInfo).pipe(first()).subscribe(
               () => {
-                  //this.alertService.success('Registration successful', true);
+                  // this.alertService.success('Registration successful', true);
                   this.router.navigate(['/cart']);
               },
               error => {
-                  //this.alertService.error(error);
-                  //this.loading = false;
-              });;
+                  // this.alertService.error(error);
+                  // this.loading = false;
+              });
   }
-  
+
   quantityChange(event: any): void {
-	  this.quantityVal = event.target.value;
-	  this.productInfo.quantity = this.quantityVal;
-	  console.log(this.quantityVal);
+    this.quantityVal = event.target.value;
+    console.log(this.quantityVal);
   }
 
 }

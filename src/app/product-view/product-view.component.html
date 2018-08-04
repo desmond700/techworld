@@ -43,48 +43,59 @@
 		</ul>
 
 		<ul *ngIf="product.type === 'tv'" class="list-group list-group-flush">
-			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Screen technology:</span> {{product.specs.Screen_Technology}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">WiFi:</span> {{product.specs.WiFi}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Speakers:</span> {{product.specs.Speakers}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Panel type:</span> {{product.specs.Panel_Type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Display size:</span> {{product.specs.Display_Size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Headphone jack:</span> {{product.specs.Headphone_Jack}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Image aspect ratio:</span> {{product.specs.Image_Aspect_Ratio}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Display resolution:</span> {{product.specs.Display_Resolution}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">VGA port:</span> {{product.specs.VGA_Port}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Refresh rate:</span> {{product.specs.Refresh_Rate}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Includes remote:</span> {{product.specs.Includes_Remote}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">3D Ready:</span> {{product.specs.ThreeD_Ready}}</li>
 		</ul>
 
 		<ul *ngIf="product.type === 'camera'" class="list-group list-group-flush">
-			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">WiFi:</span> {{product.specs.WiFi}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Bluetooth:</span> {{product.specs.Bluetooth}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Battery Type:</span> {{product.specs.Battery_Type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Back up Battery:</span> {{product.specs.Back_up_Battery}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Width:</span> {{product.specs.Width}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Height:</span> {{product.specs.Height}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Depth:</span> {{product.specs.Depth}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Weight:</span> {{product.specs.Weight}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">NFC enabled:</span> {{product.specs.NFC_Enabled}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Sensor type:</span> {{product.specs.Sensor_Type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Effective pixels:</span> {{product.specs.Effective_Pixels}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Total pixels:</span> {{product.specs.Total_Pixels}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Colour filter system:</span> {{product.specs.Colour_Filter_System}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">LCD size:</span> {{product.specs.LCD_Size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">LCD resolution:</span> {{product.specs.LCD_Resolution}}</li>
 		</ul>
 
 		<ul *ngIf="product.type === 'cellphone'" class="list-group list-group-flush">
-			<li class="list-group-item"><span class="font-weight-bold">Screen size:</span> {{product.specs.Screen_size}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Touch screen:</span> {{product.specs.Touch_screen}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Storage type:</span> {{product.specs.Storage_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive type:</span> {{product.specs.Hard_drive_type}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Hard drive capacity:</span> {{product.specs.Hard_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Solid state drive capacity:</span> {{product.specs.Solid_state_drive_capacity}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Graphics:</span> {{product.specs.Graphics}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">System memory:</span> {{product.specs.System_memory}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor speed:</span> {{product.specs.Processor_speed}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model:</span> {{product.specs.Processor_model}}</li>
-			<li class="list-group-item"><span class="font-weight-bold">Processor model_number:</span> {{product.specs.Processor_model_number}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Bluetooth:</span> {{product.specs.Bluetooth}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Memory built in:</span> {{product.specs.Memory_Built_in}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">CPU:</span> {{product.specs.CPU}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">RAM size:</span> {{product.specs.RAM_Size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">SIM card:</span> {{product.specs.SIM_Card}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Battery talk time:</span> {{product.specs.Battery_Talk_Time}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Battery type:</span> {{product.specs.Battery_Type}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Supported network bands:</span> {{product.specs.Supported_Network_Bands}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">NFC:</span> {{product.specs.NFC}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Headphone Jack:</span> {{product.specs.Headphone_Jack}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Rear Camera Resolution:</span> {{product.specs.Rear_Camera_Resolution}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Front video capture resolution:</span> {{product.specs.Front_Video_Capture_Resolution}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Camera flash:</span> {{product.specs.Camera_Flash}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Display resolution:</span> {{product.specs.Display_Resolution}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Display size:</span> {{product.specs.Display_Size}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Fingerprint scanning:</span> {{product.specs.Fingerprint_Scanning}}</li>
 			<li class="list-group-item"><span class="font-weight-bold">Operating system:</span> {{product.specs.Operating_system}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Dimensions (cm):</span> {{product.specs.Dimensions_cm}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Dimensions (in):</span> {{product.specs.Dimensions_in}}</li>
+			<li class="list-group-item"><span class="font-weight-bold">Weight:</span> {{product.specs.Weight}}</li>
 		</ul>
 	</div>
 </div>

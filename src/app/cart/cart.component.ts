@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   private items: any;
 
   constructor(private _cart: CartService,
-			  private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
     this._cart.getCartItems().subscribe(
@@ -21,27 +21,27 @@ export class CartComponent implements OnInit {
       err => console.log('error retrieving object: ' + err)
     );
   }
-  
-  getCartItems(){
-	  this._cart.getCartItems().subscribe(
+
+  getCartItems() {
+    this._cart.getCartItems().subscribe(
       res => { this.items = res; console.log('cart: ' + this.items ); },
       err => console.log('error retrieving object: ' + err)
     );
   }
-  
+
   onDelete(id: any): void {
-	  	  
-	  this._cart.removeCartItem(id).pipe(first()).subscribe(
+
+    this._cart.removeCartItem(id).pipe(first()).subscribe(
               data => {
-                  //this.alertService.success('Registration successful', true);
+                  // this.alertService.success('Registration successful', true);
                   this._cart.getCartItems().subscribe(
-					 res => { this.items = res; },
-					 err => console.log('error retrieving object: ' + err)
-				  );
+            res => { this.items = res; },
+            err => console.log('error retrieving object: ' + err)
+          );
               },
               error => {
-                  //this.alertService.error(error);
-                  //this.loading = false;
+                  // this.alertService.error(error);
+                  // this.loading = false;
               });
   }
 

@@ -1,6 +1,7 @@
 import { Component, TemplateRef } from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { AuthenticationService } from 'src/app/auth/auth.service';
+import { CartService } from 'src/app/cart.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NavigationCancel,
 	Event,
@@ -17,13 +18,15 @@ import { NavigationCancel,
 })
 export class AppComponent {
   user: any;
-  userType: any;
+	userType: any;
+	cartItemCount: number;
   modalRef: BsModalRef;
 
   constructor(private _loadingBar: SlimLoadingBarService,
-			  private _router: Router,
-			  private modalService: BsModalService,
-		  	  private authenticationService: AuthenticationService) {
+							private _router: Router,
+							private _cartService: CartService,
+							private modalService: BsModalService,
+							private authenticationService: AuthenticationService) {
 
 	  this._router.events.subscribe((event: Event) => {
 		  this.navigationInterceptor(event);
@@ -36,11 +39,14 @@ export class AppComponent {
 			  console.log('user: ' + this.user + '\nuserType: ' + this.userType);
 			}
 	  );
-	  console.log(this.user);
+		
+		this._cartService.getCartItems().subscribe(
+			res => this.cartItemCount = res.length
+		);
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template); // {3}
+    this.modalRef = this.modalService.show(template, {class: 'maxwidth'}); // {3}
   }
 
   logout() {

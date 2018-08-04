@@ -17,14 +17,17 @@ import { AdminService } from '../admin.service';
         <th scope="col">Username</th>
         <th scope="col">Email</th>
         <th scope="col">Password</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let value of users, let i = index">
         <th scope="row">{{i + 1}}</th>
-        <td>{{value.name}}</td>
-        <td>{{value.price}}</td>
-        <td>{{value.type}}</td>
+        <td>{{value.firstName}}</td>
+        <td>{{value.lastName}}</td>
+        <td>{{value.username}}</td>
+        <td>{{value.email}}</td>
+        <td>{{value.password}}</td>
       <td><button type="button" (click)="onDelete(value._id)" class="btn btn-primary">Delete</button></td>
       </tr>
     </tbody>

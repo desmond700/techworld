@@ -13,6 +13,7 @@ export class ProductViewComponent implements OnInit {
   product: any;
   itemToCart: any = {
     name: '',
+    manufacturer: '',
     model: '',
     type: '',
     img: '',
@@ -31,6 +32,7 @@ export class ProductViewComponent implements OnInit {
     this.product = res;
 
     this.itemToCart.name  = this.product.name;
+    this.itemToCart.manufacturer = this.product.manufacturer;
     this.itemToCart.model = this.product.model;
     this.itemToCart.type  = this.product.type;
     this.itemToCart.img   = this.product.img;
