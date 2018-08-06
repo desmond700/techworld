@@ -38,6 +38,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap';
+import { EditProductComponent } from './admin/dashboard/edit-product/edit-product.component';
 
 
 const routes: Routes = [
@@ -92,7 +93,7 @@ const routes: Routes = [
         children: [
           {
             path: 'customers',
-            component: ListCustomersComponent
+            component: ListCustomersComponent,
           },
           {
             path: 'add-products',
@@ -118,11 +119,14 @@ const routes: Routes = [
           },
           {
             path: 'list-products',
-            component: ListProductsComponent,
             children: [
-              {
-                path: ':category',
-                component: ProductsComponent
+			  {
+                path: '',
+                component: ListProductsComponent
+              },
+			  {
+                path: 'edit/:id',
+                component: EditProductComponent
               }
             ]
           }
@@ -153,7 +157,8 @@ const routes: Routes = [
     LaptopComponent,
     CameraComponent,
     TvComponent,
-    CellPhoneComponent
+    CellPhoneComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

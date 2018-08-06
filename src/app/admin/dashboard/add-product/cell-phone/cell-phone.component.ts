@@ -62,6 +62,7 @@ export class CellPhoneComponent implements OnInit {
         point5: ['', Validators.required]
       })
     });
+	this.cellphoneForm.get('type').setValue('cellphone');
   }
 
   // convenience getter for easy access to form fields

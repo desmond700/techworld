@@ -53,6 +53,7 @@ export class TvComponent implements OnInit {
         point5: ['', Validators.required]
       })
     });
+	this.tvForm.get('type').setValue('tv');
   }
 
   // convenience getter for easy access to form fields

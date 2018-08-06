@@ -1,24 +1,27 @@
-<div class="container">
-	<ul class="nav justify-content-center">
-	  <li class="nav-item">
-		<a class="nav-link active" routerLink="laptop">Laptops</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" routerLink="tv">Tvs</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" routerLink="camera">Cameras</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" routerLink="cell phone">Cell phones</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" routerLink="home appliance">Home appliances</a>
-	  </li>
-	</ul>
+<div class="container-fluid">
+	<h4>List products</h4>
 	<hr>
-	<div class="py-4">
-		<router-outlet></router-outlet>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12" *ngFor="let value of productObj">
+				<div class="row">
+					<div class="col-md-4">
+					<img class="img-fluid" src="{{value.img}}" />
+					</div>
+					<div class="col-md-4">
+						<p style="font-size: 25px">{{value.name}}</p>
+						<p>{{value.manufacturer}}</p>
+						<p>{{value.model}}</p>
+						<p class="text-danger">CDN$ {{value.price}}</p>
+					</div>
+					<div class="col-md-4">
+						<div class="d-flex">
+							<button type="button" class="btn btn-primary" routerLink="edit/{{value._id}}">edit</button>
+							<button type="button" class="btn btn-danger" (click)="deleteItem(value._id)">delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	
 <div>

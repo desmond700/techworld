@@ -47,11 +47,25 @@ router.get('/users', function(req, res) {
     })
 }); 
 
-// Get all products data
+// Get products data by category
 router.get('/products/:category', function(req, res) { 
     console.log("Get request for products"); 
 
     Productscollection.find({type: req.params.category}).exec(function(err, Productscollection){ 
+        if(err) { 
+            console.log("Error retrieving Productscollection."); 
+        } 
+        else { 
+            res.json(Productscollection); 
+        } 
+    })
+}); 
+
+// Get all products data
+router.get('/products', function(req, res) { 
+    console.log("Get request for products"); 
+
+    Productscollection.find({}).exec(function(err, Productscollection){ 
         if(err) { 
             console.log("Error retrieving Productscollection."); 
         } 
@@ -190,6 +204,35 @@ router.post('/cart/item', function(req, res) {
             res.status(200).send(cartItem);
         } 
     })
+});
+
+// Retrieve data by id 
+router.put('/product/update/:id', function(req, res) { 
+	let data = req.body;
+	let product;
+	console.log("type: " + data.type);
+	switch(data.type){
+		case 'laptop':
+			product = new Laptop(data);
+			break;
+		case 'tv':
+			product = new Tv(data);
+			break;
+		case 'camera':
+			product = new Camera(data);
+			break;
+		case 'cellphone':
+			product = new Cell_phone(data);
+			break;
+	}
+	product.update({_id: req.params.id}).exec(function(err, Product){ 
+		if(err) { 
+			console.log("Error retrieving Product."); 
+		} else { 
+			res.status(200).send(Product); 
+		} 
+	}) 
+	console.log("Update single document");
 }); 
 
 
@@ -228,5 +271,24 @@ router.delete('/user/:id', function(req, res) {
         } 
     })
 }); 
+
+// Delete an item from the cart
+router.delete('/product/delete/:id', function(req, res) { 
+    
+    var id = req.param("id");
+
+    Productscollection.remove({_id: id},function(err, result){ 
+        if(err) { 
+            res.status(401).send({err: 'Error: Could not delete robot'});
+        } 
+        if(!result){
+            res.status(400).send({err: 'Item deleted from product collection'}); 
+        }
+        else { 
+            res.send(result);
+        } 
+    })
+}); 
+
 
 module.exports = router

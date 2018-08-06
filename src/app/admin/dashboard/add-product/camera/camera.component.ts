@@ -57,6 +57,7 @@ export class CameraComponent implements OnInit {
             point5: ['', Validators.required]
         })
     });
+	this.cameraForm.get('type').setValue('camera');
   }
 
   // convenience getter for easy access to form fields

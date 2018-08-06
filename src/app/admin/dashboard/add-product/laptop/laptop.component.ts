@@ -54,6 +54,7 @@ export class LaptopComponent implements OnInit {
             point5: ['', Validators.required]
         })
     });
+	this.laptopForm.get('type').setValue('laptop');
   }
 
   // convenience getter for easy access to form fields
